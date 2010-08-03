@@ -29,6 +29,7 @@ public class MainView extends JFrame {
     private JMenuItem load_menu;
     private JMenuItem save_menu;
     private JMenuItem exit_menu;
+    private JMenuItem pref_window;
     private JPanel view_panel;
     private JPanel button_panel;
     private JButton new_vl;
@@ -90,10 +91,22 @@ public class MainView extends JFrame {
                 closeFrame();
             }
         });
+
+        this.pref_window = new JMenuItem("Preferences");
+        this.pref_window.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                prefWindow();
+            }
+        });
+
         this.filemenu.add(load_menu);
         this.filemenu.add(save_menu);
         this.filemenu.addSeparator();
         this.filemenu.add(exit_menu);
+
+        this.configmenu.add(pref_window);
 
         this.menubar.add(filemenu);
         this.menubar.add(configmenu);
@@ -137,6 +150,11 @@ public class MainView extends JFrame {
 
     protected void closeFrame() {
         this.dispose();
+    }
+
+    protected void prefWindow(){
+        ConfigView config = new ConfigView();
+        
     }
 
 

@@ -11,10 +11,8 @@ public class Vorlesung {
 	private ArrayList<String> fachrichtungen = new ArrayList<String>();
 	
 	
-	public Vorlesung(String name, int fachrichtung, int points){
-		this.name = name;
-		this.ects_points = points;
-		this.fachrichtung = fachrichtungen.get(fachrichtung);
+	public Vorlesung(){
+		
 	}
 	
 	public void setArrayList (){

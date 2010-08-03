@@ -6,6 +6,7 @@
 package fk;
 
 import datenverarbeitung.dv;
+import java.util.ArrayList;
 
 /**
  *
@@ -14,9 +15,14 @@ import datenverarbeitung.dv;
 public class fk {
 
     private dv dv;
+    
 
     public fk(dv dv){
         this.dv = dv;
+    }
+
+    public void setVorlesungen(ArrayList<String> list){
+        
     }
 
 }
