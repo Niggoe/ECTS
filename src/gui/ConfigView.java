@@ -1,8 +1,10 @@
 package gui;
 
+import fk.fk;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
@@ -21,18 +23,15 @@ public class ConfigView extends JDialog {
     private JTextArea wahlfachliste;
     private JButton ok_button;
     private JButton cancel_button;
-
+    private fk fk;
     private JPanel view_panel;
 
-
-
-
-    public ConfigView(){
+    public ConfigView(fk fk) {
+        this.fk = fk;
         init();
     }
 
-    
-    private void init(){
+    private void init() {
 
         this.setModal(true);
         this.setSize(300, 200);
@@ -57,14 +56,23 @@ public class ConfigView extends JDialog {
 
         this.add(view_panel);
         this.setVisible(true);
-        
+
 
     }
 
-
-    private void save_clicked(){
-        if (this.studiengang_name.getText().equals("") || this.wahlfachliste.getText().equals("")){
+    private void save_clicked() {
+        if (this.studiengang_name.getText().equals("") || this.wahlfachliste.getText().equals("")) {
             JOptionPane.showConfirmDialog(rootPane, "Bitte alle Felder ausfüllen", "Fehler", JOptionPane.CLOSED_OPTION, JOptionPane.ERROR_MESSAGE);
+        } else {
+            ArrayList<String> list = new ArrayList<String>();
+            String studiengang = this.studiengang_name.getText().trim();
+            String[] facher = this.wahlfachliste.getText().split("\n");
+            for (String s : facher) {
+                list.add(s.trim());
+            }
+            fk.setVorlesungen(studiengang, list);
+            this.dispose();
         }
+
     }
 }

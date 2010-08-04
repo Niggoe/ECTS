@@ -67,7 +67,7 @@ public class MainView extends JFrame {
         this.new_vl.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
-                New_Vl_dialog dialog = new New_Vl_dialog();
+                New_Vl_dialog dialog = new New_Vl_dialog(fk);
                 
             }
         });
@@ -153,7 +153,7 @@ public class MainView extends JFrame {
     }
 
     protected void prefWindow(){
-        ConfigView config = new ConfigView();
+        ConfigView config = new ConfigView(fk);
         
     }
 
